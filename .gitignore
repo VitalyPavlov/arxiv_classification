@@ -1,0 +1,8 @@
+venv
+
+.vscode
+.ipynb_checkpoints
+*.egg-info
+.pytest_cache
+.DS_Store
+arxiv-metadata-oai-snapshot.json

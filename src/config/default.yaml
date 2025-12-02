@@ -1,0 +1,10 @@
+data:
+  data_path: './data/arxiv-metadata-oai-snapshot.json'
+  valid_path: './data/validation.png'
+  chunksize: 1000
+bert:
+  model_name: 'BERTopic_Wikipedia'
+llm:
+  model_name: 'Qwen/Qwen2.5-3B'
+  output_file: './data/title_prediction.json'
+  run_llm: False
