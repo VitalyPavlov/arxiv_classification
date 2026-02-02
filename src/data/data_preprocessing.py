@@ -61,12 +61,12 @@ def filter_short_docs(docs: List[str], min_tokens: int = 5) -> List[str]:
     """
     Keep only documents that have at least `min_tokens` tokens.
     """
-    filtered = []
-    for doc in docs:
+    idxs = []
+    for i, doc in enumerate(docs):
         n_tokens = len(doc.split())
         if n_tokens >= min_tokens:
-            filtered.append(doc)
-    return filtered
+            idxs.append(i)
+    return np.array(idxs)
 
 
 def lemmatize_text(text: str) -> str:

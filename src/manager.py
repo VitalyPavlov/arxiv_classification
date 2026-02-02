@@ -7,7 +7,7 @@ from bertopic import BERTopic
 from collections import Counter
 import matplotlib.pyplot as plt
 
-from data.data_preprocessing import preprocess_text
+from data.data_preprocessing import filter_short_docs
 from models.llm_model import LLM
 from metrics.concentration import concentration_score
 
@@ -19,7 +19,8 @@ class Manager:
         self.llm_model = LLM(self.cfg.llm)
 
     def data_preparation(self, df: pd.DataFrame) -> pd.DataFrame:
-        df["abstract_post"] = df["abstract"].apply(lambda x: preprocess_text(x))
+        idxs = filter_short_docs(df["abstract_post"].values)
+        df = df.loc[idxs].reset_index(drop=True)
         return df
 
     def get_data(self, chunksize: int = 1_000) -> pd.DataFrame:

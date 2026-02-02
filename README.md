@@ -46,12 +46,7 @@ Since the dataset is large, the file was read in chunks of 1000 rows. A full ana
 
 **Abstact** The average length of an abstract is about 720 characters or 100 words. The following preprocessing steps were applied:
 
- * removing stop words
- * removing emails and HTML tags
- * removing all punctuation
  * removing documents with small length
- * lemmatization
- * tokenization (performed inside SBERT)
 
  **Categories** The number of unique categories is more than 75,000. The labels have a hierarchical structure. For example, the high-level category `math` has sub-categories such as `math.AP`, `math.NT`, `math.DG`, and so on. These categories are used for indirect validation of the topic modeling results.
 
